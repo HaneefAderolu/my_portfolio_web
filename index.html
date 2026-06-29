@@ -73,6 +73,66 @@
   .nav-links a { font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
 
+  /* Mobile Menu Styles */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: none;
+    padding: 0;
+  }
+  .menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    transition: all 0.3s ease;
+  }
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,8,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    gap: 0;
+    padding: 20px;
+    z-index: 99;
+  }
+  .mobile-menu.open {
+    display: flex;
+  }
+  .mobile-menu a {
+    padding: 16px 0;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+  .mobile-menu a:hover {
+    color: var(--accent);
+  }
+
   .hero {
     min-height: 100vh;
     display: flex; align-items: center;
@@ -207,13 +267,17 @@
 
   @media (max-width: 900px) {
     nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; }
     .hero { padding: 100px 24px 80px; }
     section { padding: 70px 24px; }
     .about-grid, .projects-grid, .ml-grid, .skills-grid { grid-template-columns: 1fr; }
     .ml-card.featured { grid-column: span 1; }
     .hero-stats { display: none; }
-    footer { padding: 20px 24px; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 16px; }
     .nav-links { gap: 20px; }
+    .contact-links { flex-direction: column; gap: 12px; }
+    .contact-link { width: 100%; justify-content: center; }
   }
 </style>
 </head>
@@ -224,6 +288,11 @@
 
 <nav id="nav">
   <div class="nav-logo">HA.</div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -233,6 +302,14 @@
   </div>
 </nav>
 
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#ml">ML</a>
+  <a href="#contact">Contact</a>
+</div>
+
 <section class="hero" id="home">
   <div class="hero-grid"></div>
   <div class="hero-orb"></div>
@@ -241,7 +318,7 @@
     <h1 class="hero-name">Haneef<br><em>Aderolu</em></h1>
     <p class="hero-desc">
       CS student building at the intersection of web development and machine learning.
-      From pixel-perfect UIs to 98.6% accurate NLP models - I engineer solutions that work.
+      From pixel-perfect UIs to 98.6% accurate NLP models — I engineer solutions that work.
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View My Work</a>
@@ -418,7 +495,7 @@
       <a href="https://www.linkedin.com/in/haneef-aderolu-32761727a" target="_blank" class="contact-link"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="vertical-align:middle;"><circle cx="12" cy="12" r="12" fill="none" stroke="var(--accent)" stroke-width="0.5"/><path fill="var(--accent)" d="M7.2 9.6h2V17h-2zm1-3.2a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zm3 3.2h1.9v1h.1c.3-.5 1-1.1 2-1.1 2.1 0 2.5 1.4 2.5 3.2V17h-2v-3.7c0-.9 0-2-1.2-2s-1.4 1-1.4 2V17h-2V9.6z"/></svg></span> LinkedIn</a>
       <a href="https://wa.me/2349117935124" target="_blank" class="contact-link"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18" style="vertical-align:middle;"><circle cx="24" cy="24" r="24" fill="none" stroke="var(--accent)" stroke-width="1"/><path fill="var(--accent)" d="M24 10.5C16.6 10.5 10.5 16.6 10.5 24c0 2.4.6 4.7 1.8 6.7L10.5 37.5l7-1.8c1.9 1.1 4.1 1.7 6.5 1.7 7.4 0 13.5-6.1 13.5-13.5S31.4 10.5 24 10.5zm6.6 18.6c-.3.8-1.5 1.5-2.1 1.6-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9 1-2.2.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.3.6 1 2.3 1.1 2.4.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1.1.3.2.5.3.6.4.1.3.1 1-.2 1.8z"/></svg></span> +234 911 793 5124</a>
       <a href="https://wa.me/201507103767" target="_blank" class="contact-link"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18" style="vertical-align:middle;"><circle cx="24" cy="24" r="24" fill="none" stroke="var(--accent)" stroke-width="1"/><path fill="var(--accent)" d="M24 10.5C16.6 10.5 10.5 16.6 10.5 24c0 2.4.6 4.7 1.8 6.7L10.5 37.5l7-1.8c1.9 1.1 4.1 1.7 6.5 1.7 7.4 0 13.5-6.1 13.5-13.5S31.4 10.5 24 10.5zm6.6 18.6c-.3.8-1.5 1.5-2.1 1.6-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9 1-2.2.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.3.6 1 2.3 1.1 2.4.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1.1.3.2.5.3.6.4.1.3.1 1-.2 1.8z"/></svg></span> +20 1507103767</a>
-      <a href="https://drive.google.com/file/d/1YBj6RHRMRtVjMoKa1w2pIorZm89Ua9ns/view?usp=drive_link" target="_blank" class="contact-link"><span>↓</span> Download CV</a>
+      <a href="https://your-cv-url-here.com" target="_blank" class="contact-link"><span>↓</span> Download CV</a>
     </div>
   </div>
 </section>
@@ -426,7 +503,7 @@
 <footer>
   <span>© 2026 Haneef Aderolu</span>
   <div class="footer-dot"></div>
-  <a href="https://drive.google.com/file/d/1YBj6RHRMRtVjMoKa1w2pIorZm89Ua9ns/view?usp=drive_link" target="_blank" style="font-size:11px; letter-spacing:0.1em; color:var(--muted); text-decoration:none; text-transform:uppercase; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Download CV ↓</a>
+  <a href="https://your-cv-url-here.com" target="_blank" style="font-size:11px; letter-spacing:0.1em; color:var(--muted); text-decoration:none; text-transform:uppercase; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Download CV ↓</a>
 </footer>
 
 <!-- Floating WhatsApp Button -->
@@ -491,6 +568,12 @@
     0% { transform: scale(1); opacity: 0.7; }
     100% { transform: scale(1.7); opacity: 0; }
   }
+  @media (max-width: 900px) {
+    .wa-float {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
 </style>
 
 <div class="wa-float">
@@ -543,6 +626,31 @@
 
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Close menu when a link is clicked
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) {
+      menuToggle.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    }
   });
 
   const observer = new IntersectionObserver(entries => {
