@@ -82,6 +82,8 @@
     border: none;
     cursor: none;
     padding: 0;
+    z-index: 101;
+    position: relative;
   }
   .menu-toggle span {
     width: 24px;
@@ -101,10 +103,11 @@
 
   .mobile-menu {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 60px;
     left: 0;
     right: 0;
+    bottom: 0;
     background: rgba(10,10,8,0.98);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -112,6 +115,7 @@
     gap: 0;
     padding: 20px;
     z-index: 99;
+    overflow-y: auto;
   }
   .mobile-menu.open {
     display: flex;
@@ -631,8 +635,10 @@
   // Mobile Menu Toggle
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
+  const nav = document.getElementById('nav');
 
-  menuToggle.addEventListener('click', () => {
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     menuToggle.classList.toggle('active');
     mobileMenu.classList.toggle('open');
   });
@@ -647,27 +653,44 @@
 
   // Close menu when clicking outside
   document.addEventListener('click', (e) => {
-    const nav = document.getElementById('nav');
     if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) {
       menuToggle.classList.remove('active');
       mobileMenu.classList.remove('open');
     }
   });
 
-  // WhatsApp Button - Toggle menu or navigate
+  // WhatsApp Button - Toggle menu on long press or double click
   const waToggle = document.getElementById('waToggle');
   const waMenu = document.getElementById('waMenu');
-  let isMenuOpen = false;
+  let waLongPressTimer = null;
+  let isWaMenuOpen = false;
 
+  // Long press detection for touch devices
+  waToggle.addEventListener('touchstart', (e) => {
+    waLongPressTimer = setTimeout(() => {
+      e.preventDefault();
+      isWaMenuOpen = !isWaMenuOpen;
+      if (isWaMenuOpen) {
+        waMenu.classList.add('open');
+        document.querySelector('.wa-pulse').style.display = 'none';
+      } else {
+        waMenu.classList.remove('open');
+      }
+    }, 300);
+  });
+
+  waToggle.addEventListener('touchend', () => {
+    clearTimeout(waLongPressTimer);
+  });
+
+  // Click handler for desktop (allow navigation)
   waToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    isMenuOpen = !isMenuOpen;
-    if (isMenuOpen) {
-      waMenu.classList.add('open');
-      document.querySelector('.wa-pulse').style.display = 'none';
-    } else {
+    if (isWaMenuOpen) {
+      e.preventDefault();
       waMenu.classList.remove('open');
+      isWaMenuOpen = false;
     }
+    // Otherwise, let it navigate naturally
   });
 
   // Close WhatsApp menu when clicking outside
@@ -675,7 +698,7 @@
     const waFloat = document.querySelector('.wa-float');
     if (!waFloat.contains(e.target)) {
       waMenu.classList.remove('open');
-      isMenuOpen = false;
+      isWaMenuOpen = false;
     }
   });
 
