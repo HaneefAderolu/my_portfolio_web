@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Haneef Aderolu - Portfolio</title>
+<meta name="description" content="Haneef Aderolu, software engineer. React and JavaScript web apps, Python and FastAPI backends, and ML models. Computer Science at Cairo University.">
+<meta name="theme-color" content="#0a0a08">
+<meta property="og:title" content="Haneef Aderolu | Software Engineer">
+<meta property="og:description" content="Web apps, ML models and games. Most of the work here is live.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+<title>Haneef Aderolu | Software Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
   :root {
     --bg: #0a0a08;
@@ -15,7 +20,7 @@
     --accent: #c8f062;
     --accent2: #f0a830;
     --text: #f0ede6;
-    --muted: #7a7a72;
+    --muted: #9a9a90;
     --dim: #3a3a36;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -186,7 +191,7 @@
   .btn-ghost { padding: 14px 32px; border: 1px solid var(--border); color: var(--muted); font-family: 'DM Mono', monospace; font-size: 12px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.05em; }
   .btn-ghost:hover { border-color: var(--text); color: var(--text); }
   .hero-scroll {
-    position: absolute; bottom: 40px; left: 60px; font-size: 11px; letter-spacing: 0.1em; color: var(--dim);
+    position: absolute; bottom: 40px; left: 60px; font-size: 11px; letter-spacing: 0.1em; color: var(--muted);
     display: flex; align-items: center; gap: 10px; text-transform: uppercase;
     opacity: 0; animation: fadeUp 0.7s 1s forwards;
   }
@@ -233,13 +238,13 @@
   .project-card:hover { border-color: var(--accent); }
   .project-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(200,240,98,0.04) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; }
   .project-card:hover::before { opacity: 1; }
-  .project-num { font-size: 11px; color: var(--dim); letter-spacing: 0.1em; margin-bottom: 20px; font-family: 'DM Mono', monospace; }
+  .project-num { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 20px; font-family: 'DM Mono', monospace; }
   .project-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
-  .project-desc { font-size: 12px; line-height: 1.7; color: var(--muted); margin-bottom: 24px; flex-grow: 1; }
+  .project-desc { font-size: 13px; line-height: 1.7; color: var(--muted); margin-bottom: 24px; flex-grow: 1; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
   .project-tag { font-size: 10px; padding: 4px 10px; background: var(--surface2); color: var(--accent); letter-spacing: 0.08em; }
   .project-link { padding-top: 16px; border-top: 1px solid var(--border); margin-top: auto; }
-  .project-link button { 
+  .project-link a { 
     display: inline-flex; 
     align-items: center; 
     gap: 8px; 
@@ -252,21 +257,21 @@
     font-weight: 600;
     letter-spacing: 0.08em; 
     text-transform: uppercase;
-    cursor: pointer;
+    cursor: none; text-decoration: none;
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
   }
-  .project-link button:hover {
+  .project-link a:hover {
     background: var(--accent);
     color: var(--bg);
     transform: translateY(-2px);
   }
-  .project-link button::after { 
+  .project-link a::after { 
     content: '→'; 
     transition: transform 0.3s; 
   }
-  .project-link button:hover::after { 
+  .project-link a:hover::after { 
     transform: translateX(4px); 
   }
   .project-accent { position: absolute; top: 0; right: 0; width: 60px; height: 60px; border-left: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--dim); transition: all 0.3s; }
@@ -282,7 +287,7 @@
   .exp-date { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; font-family: 'DM Mono', monospace; }
   .exp-role { font-size: 12px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 22px; }
   .exp-points { list-style: none; margin-bottom: 22px; }
-  .exp-points li { font-size: 12px; line-height: 1.7; color: var(--muted); padding-left: 20px; position: relative; margin-bottom: 8px; }
+  .exp-points li { font-size: 13px; line-height: 1.7; color: var(--muted); padding-left: 20px; position: relative; margin-bottom: 8px; }
   .exp-points li::before { content: '\2192'; position: absolute; left: 0; color: var(--accent); }
   .ml-section { background: var(--bg); }
   .ml-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
@@ -305,7 +310,7 @@
   .contact-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(200,240,98,0.04); }
 
   footer { padding: 24px 60px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-  footer span { font-size: 11px; color: var(--dim); letter-spacing: 0.08em; }
+  footer span { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
   .footer-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: blink 2s infinite; }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
 
@@ -327,12 +332,58 @@
     .contact-links { flex-direction: column; gap: 12px; }
     .contact-link { width: 100%; justify-content: center; }
   }
+
+  /* ---- creative layer ---- */
+  .progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;z-index:200}
+  #net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+  .hero-content{z-index:1}
+  .role{font-family:'DM Mono',monospace;font-size:clamp(15px,2vw,20px);color:var(--text);margin-bottom:20px;min-height:1.6em;opacity:0;animation:fadeUp .7s .45s forwards}
+  .role #typed{color:var(--accent)}
+  .caret{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:3px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+  .themes{display:flex;gap:8px;align-items:center}
+  .themes button,.filters button{cursor:none}
+  .themes button{width:12px;height:12px;border-radius:50%;border:1px solid var(--border);padding:0;transition:transform .2s}
+  .themes button:hover{transform:scale(1.4)}
+  .themes button.on{outline:1px solid var(--text);outline-offset:2px}
+  .marquee{overflow:hidden;border-block:1px solid var(--border);padding:18px 0;background:var(--bg)}
+  .track{display:flex;gap:44px;width:max-content;animation:slide 40s linear infinite;font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,3vw,34px);text-transform:uppercase;white-space:nowrap;color:transparent;-webkit-text-stroke:1px var(--dim)}
+  .track span:nth-child(even){color:var(--accent);-webkit-text-stroke:0;font-size:.6em;align-self:center}
+  .marquee:hover .track{animation-play-state:paused}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:-30px 0 36px}
+  .filters button{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:9px 18px;transition:all .2s}
+  .filters button:hover{color:var(--text);border-color:var(--text)}
+  .filters button.on{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+  @keyframes pop{from{opacity:0;transform:translateY(30px) scale(.97)}}
+  .reveal.visible .project-card,.reveal.visible .skill-block{animation:pop .6s cubic-bezier(.16,1,.3,1) backwards;animation-delay:calc(var(--i,0)*70ms)}
+  .project-card.show{animation:pop .5s cubic-bezier(.16,1,.3,1) backwards!important;animation-delay:calc(var(--i,0)*50ms)!important}
+  .project-card{transition:border-color .3s,transform .2s ease-out;will-change:transform}
+  .project-card::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 14%,transparent),transparent 60%)}
+  .project-card:hover::after{opacity:1}
+  .skill-block:hover{background-image:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 10%,transparent),transparent 70%)}
+  .exp-item:hover{transform:translateX(8px)}
+  .exp-item{transition:border-color .3s,transform .3s}
+  .hero-name{transition:letter-spacing .4s}
+  .hero-name:hover{letter-spacing:-.01em}
+  .btn-primary,.btn-ghost,.contact-link{transition:transform .25s ease-out,border-color .2s,color .2s,background .2s}
+  @media (hover:none){
+    body,.menu-toggle,.btn-primary,.project-card,.exp-item,.themes button,.filters button{cursor:auto}
+    .cursor,.cursor-ring{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  }
+  .hero-edu{font-size:12px;letter-spacing:.08em;color:var(--muted);margin:-28px 0 40px;opacity:0;animation:fadeUp .7s .58s forwards}
+  .hero-edu span{color:var(--accent);text-transform:uppercase;margin-right:12px;font-size:10px;letter-spacing:.15em}
+  .more{margin-top:32px;font-size:12px;letter-spacing:.08em}
+  .more a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+<div class="progress" id="progress"></div>
 
 <nav id="nav">
   <div class="nav-logo">HA.</div>
@@ -348,6 +399,7 @@
     <a href="#projects">Projects</a>
     <a href="#ml">ML</a>
     <a href="#contact">Contact</a>
+    <div class="themes" id="themes"><button data-c="#c8f062" aria-label="Accent lime" style="background:#c8f062" class="on"></button><button data-c="#62d6f0" aria-label="Accent cyan" style="background:#62d6f0"></button><button data-c="#f78fb3" aria-label="Accent pink" style="background:#f78fb3"></button><button data-c="#f0a830" aria-label="Accent amber" style="background:#f0a830"></button></div>
   </div>
 </nav>
 
@@ -361,15 +413,15 @@
 </div>
 
 <section class="hero" id="home">
+  <canvas id="net"></canvas>
   <div class="hero-grid"></div>
   <div class="hero-orb"></div>
   <div class="hero-content">
-    <div class="hero-tag">Computer Science Student · Cairo University</div>
+    <div class="hero-tag">Software Engineer</div>
     <h1 class="hero-name">Haneef<br><em>Aderolu</em></h1>
-    <p class="hero-desc">
-      Software engineer building at the intersection of web development and machine learning.
-      From pixel-perfect UIs to 98.6% accurate NLP models. Got an idea? I'll build it.
-    </p>
+    <div class="role">I build <span id="typed"></span><span class="caret"></span></div>
+    <p class="hero-desc">I build web apps, ML models and the occasional game. Most of what is below is live, so click around.</p>
+    <div class="hero-edu"><span>Education</span>Computer Science, Cairo University</div>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View My Work</a>
       <a href="#contact" class="btn-ghost">Get In Touch</a>
@@ -380,20 +432,22 @@
     Scroll to explore
   </div>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Projects</div></div>
-    <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Best Accuracy</div></div>
-    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Languages</div></div>
+    <div class="stat"><div class="stat-num">9</div><div class="stat-label">Projects</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Internships</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Languages</div></div>
   </div>
 </section>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
 
 <section class="about" id="about">
   <div class="section-label">About</div>
   <h2 class="section-title reveal">Who am I</h2>
   <div class="about-grid reveal">
     <div class="about-text">
-      <p>I'm <strong>Haneef Aderolu</strong>, a Computer Science student at Cairo University, I build things with code - interactive web applications, mobile applications,  machine learning models, and everything in between.</p>
-      <p>My work spans <strong>frontend development</strong> with React and modern CSS, <strong>Java applications</strong>, and applied <strong>machine learning</strong> using Python and scikit-learn - from NLP pipelines to computer vision classifiers.</p>
-      <p>I'm driven by <strong>problem solving</strong> and a genuine curiosity for how systems work. Based in <strong>Egypt</strong>, building globally.</p>
+      <p>I'm <strong>Haneef Aderolu</strong>, a software engineer based in Egypt, studying Computer Science at Cairo University (graduating 2027).</p>
+      <p>I mostly work in <strong>React and JavaScript</strong> on the front end, with <strong>Python and FastAPI</strong> behind it when a project needs a backend. I also train small <strong>ML models</strong> with scikit-learn.</p>
+      <p>I like building things people can actually open and use, so much of my work below is live.</p>
     </div>
     <div>
       <div class="about-edu">
@@ -407,7 +461,7 @@
           <span class="course-tag">Web Technology</span><span class="course-tag">Databases</span>
           <span class="course-tag">Machine Learning</span><span class="course-tag">OS</span>
           <span class="course-tag">Software Engineering</span>
-          <span class="course-tag">Reasoning and knowledge Base</span>
+          <span class="course-tag">Reasoning and Knowledge Bases</span>
           <span class="course-tag">Supervised Learning</span>
         </div>
       </div>
@@ -440,7 +494,7 @@
       <div class="exp-role">Machine Learning Intern</div>
       <ul class="exp-points">
         <li>Completed the full ML internship track in the Ranking Signal Analysis lane, with eight weekly assignments and a capstone.</li>
-        <li>Trained a Random Forest classifier and used GroupShuffleSplit for the train and test splits.</li>
+        <li>Trained a Random Forest classifier on ranking signal data, using GroupShuffleSplit so related rows stay on the same side of the train and test split.</li>
         <li>Queried the data warehouse with DuckDB.</li>
         <li>Published the findings as a research paper on GitHub Pages.</li>
       </ul>
@@ -466,7 +520,7 @@
       <div class="skill-cat">Web Development</div>
       <div class="skill-list">
         <span class="skill-pill">React</span><span class="skill-pill">HTML5</span>
-        <span class="skill-pill">CSS3</span><span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">CSS3</span><span class="skill-pill">PWA</span>
       </div>
     </div>
     <div class="skill-block">
@@ -479,12 +533,11 @@
       </div>
     </div>
     <div class="skill-block">
-      <div class="skill-icon">🧠</div>
-      <div class="skill-cat">Soft Skills</div>
+      <div class="skill-icon">🛠</div>
+      <div class="skill-cat">Backend and Tools</div>
       <div class="skill-list">
-        <span class="skill-pill">Problem Solving</span><span class="skill-pill">Teamwork</span>
-        <span class="skill-pill">Communication</span><span class="skill-pill">Creativity</span>
-        <span class="skill-pill">Time Management</span>
+        <span class="skill-pill">FastAPI</span><span class="skill-pill">SQL</span><span class="skill-pill">DuckDB</span>
+        <span class="skill-pill">Streamlit</span><span class="skill-pill">Git / GitHub</span><span class="skill-pill">Vercel</span>
       </div>
     </div>
   </div>
@@ -493,108 +546,100 @@
 <section class="projects" id="projects">
   <div class="section-label">Projects</div>
   <h2 class="section-title reveal">Things I've built</h2>
+  <div class="filters" id="filters"></div>
   <div class="projects-grid reveal">
-    <div class="project-card">
-      <div class="project-accent">🖼</div>
-      <div class="project-num">01 / C++</div>
-      <div class="project-name">Image Editing Program</div>
-      <div class="project-desc">Team of 3 built an image processing app with blur, grayscale conversion, and pixel-level transformations.</div>
-      <div class="project-tags"><span class="project-tag">C++</span><span class="project-tag">Image Processing</span><span class="project-tag">Team Project</span></div>
-      <div class="project-link">
-        <button onclick="window.open('https://github.com/HaneefAderolu', '_blank')">View Project</button>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-accent">📄</div>
-      <div class="project-num">02 / Full-Stack</div>
-      <div class="project-name">AI Document Summarizer</div>
-      <div class="project-desc">Full-stack application allowing students to upload documents and receive AI-generated summaries, key points, and study questions using FastAPI, React, and OpenAI API.</div>
-      <div class="project-tags"><span class="project-tag">FastAPI</span><span class="project-tag">React</span><span class="project-tag">OpenAI API</span><span class="project-tag">NLP</span></div>
-      <div class="project-link">
-        <button onclick="window.open('https://ai-study-assistant-sigma-nine.vercel.app/', '_blank')">View Project</button>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-accent">🛍️</div>
-      <div class="project-num">03 / Shopify</div>
-      <div class="project-name">E-Commerce Shopify Store</div>
-      <div class="project-desc">Built a fully functional Shopify e-commerce store with product catalog, shopping cart, checkout integration, and payment processing. Optimized for conversions and mobile responsiveness.</div>
-      <div class="project-tags"><span class="project-tag">Shopify</span><span class="project-tag">Liquid</span><span class="project-tag">E-Commerce</span><span class="project-tag">UI/UX</span></div>
-      <div class="project-link">
-        <button onclick="window.open('https://drive.google.com/file/d/1xbv2knBBzUDkyuBnt7J_HRt3lC9ZFJbn/view?usp=drive_link', '_blank')">View Project</button>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-accent">💬</div>
-      <div class="project-num">04 / NLP</div>
-      <div class="project-name">Sentiment Analysis</div>
-      <div class="project-desc">Classifies IMDB movie reviews as positive or negative using TF-IDF vectorization and logistic regression. 89.3% accuracy.</div>
-      <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">NLP</span><span class="project-tag">89.3% acc</span></div>
-      <div class="project-link">
-        <button onclick="window.open('https://github.com/HaneefAderolu/Sentiment-Analysis', '_blank')">View Project</button>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-accent">📰</div>
-      <div class="project-num">05 / NLP</div>
-      <div class="project-name">Fake News Detector</div>
-      <div class="project-desc">NLP model detecting fake news using TF-IDF + Logistic Regression. Evaluated with confusion matrix - 98.6% accuracy.</div>
-      <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">TF-IDF</span><span class="project-tag">98.6% acc</span></div>
-      <div class="project-link">
-        <button onclick="window.open('https://github.com/HaneefAderolu/Fake-News-Detector', '_blank')">View Project</button>
-      </div>
-    </div>
-    <div class="project-card">
+    <div class="project-card" data-cat="web ml">
       <div class="project-accent">🎙️</div>
-      <div class="project-num">06 / Study Tool</div>
+      <div class="project-num">01 / Study Tool</div>
       <div class="project-name">Muhaadara (محاضرة)</div>
-      <div class="project-desc">A study app that helps students understand lectures in their own language. Record or upload a lecture to get a timestamped bilingual transcript and a study pack, translate text with Egyptian Arabic understood as Egyptian, or upload PDF, Word and PowerPoint notes to get topics, key points, key terms and practice questions. Supports multi-user accounts with per-user data and installs as an app.</div>
+      <div class="project-desc">Study app that turns a lecture recording into a timestamped bilingual transcript and a study pack. Also takes PDF, Word and PowerPoint notes, understands Egyptian Arabic, supports multi-user accounts and installs as an app.</div>
       <div class="project-tags"><span class="project-tag">Transcription</span><span class="project-tag">Translation</span><span class="project-tag">Arabic</span><span class="project-tag">Study Pack</span><span class="project-tag">PWA</span></div>
       <div class="project-link">
-        <button onclick="window.open('https://muhaadara-2-0.onrender.com/', '_blank')">View Project</button>
+        <a href="https://muhaadara-2-0.onrender.com/" target="_blank" rel="noopener">View Project</a>
       </div>
     </div>
-    <div class="project-card">
-      <div class="project-accent">🎮</div>
-      <div class="project-num">07 / Game Dev</div>
-      <div class="project-name">Shatter</div>
-      <div class="project-desc">A browser game inspired by Smash Hit. Throw balls to smash walls of glass, grab power-ups, bank shots off the walls and beat bosses across a 20-level story mode and an endless mode. Plain JavaScript on a canvas, installable as an offline app.</div>
-      <div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">Canvas</span><span class="project-tag">PWA</span><span class="project-tag">Game Dev</span></div>
-      <div class="project-link">
-        <button onclick="window.open('https://shatter-ebon.vercel.app/', '_blank')">View Project</button>
-      </div>
-    </div>
-    <div class="project-card">
+    <div class="project-card" data-cat="web">
       <div class="project-accent">📖</div>
-      <div class="project-num">08 / Web App</div>
+      <div class="project-num">02 / Web App</div>
       <div class="project-name">Ayat</div>
       <div class="project-desc">A Quran search and reader app. Search by keyword or theme to find verses in Arabic and English, browse all 114 surahs by juz and hizb, bookmark verses to read later and listen verse by verse with different reciters. Works offline as an installable app.</div>
       <div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">PWA</span><span class="project-tag">Offline-first</span><span class="project-tag">Audio</span></div>
       <div class="project-link">
-        <button onclick="window.open('https://ayat-quran-69xkyseow-haneefaderolus-projects.vercel.app/', '_blank')">View Project</button>
+        <a href="https://ayat-quran-69xkyseow-haneefaderolus-projects.vercel.app/" target="_blank" rel="noopener">View Project</a>
       </div>
     </div>
-    <div class="project-card">
+    <div class="project-card" data-cat="game web">
+      <div class="project-accent">🎮</div>
+      <div class="project-num">03 / Game Dev</div>
+      <div class="project-name">Shatter</div>
+      <div class="project-desc">A browser game inspired by Smash Hit. Throw balls to smash walls of glass, grab power-ups, bank shots off the walls and beat bosses across a 20-level story mode and an endless mode. Plain JavaScript on a canvas, installable as an offline app.</div>
+      <div class="project-tags"><span class="project-tag">JavaScript</span><span class="project-tag">Canvas</span><span class="project-tag">PWA</span><span class="project-tag">Game Dev</span></div>
+      <div class="project-link">
+        <a href="https://shatter-ebon.vercel.app/" target="_blank" rel="noopener">View Project</a>
+      </div>
+    </div>
+    <div class="project-card" data-cat="ml web">
       <div class="project-accent">⚽</div>
-      <div class="project-num">09 / AI Chatbot</div>
+      <div class="project-num">04 / AI Chatbot</div>
       <div class="project-name">EPL Chatbot</div>
       <div class="project-desc">A Streamlit chatbot that answers questions about the English Premier League in plain language. Ask about goalscorers, the league table, team and player stats or match results, and it looks up the answer in a SQL database of Premier League data.</div>
       <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">NLP</span><span class="project-tag">SQL</span><span class="project-tag">Streamlit</span></div>
       <div class="project-link">
-        <button onclick="window.open('https://epl-stat-merchant-es7eitwxt8g6pcdhba5mbe.streamlit.app/', '_blank')">View Project</button>
+        <a href="https://epl-stat-merchant-es7eitwxt8g6pcdhba5mbe.streamlit.app/" target="_blank" rel="noopener">View Project</a>
       </div>
     </div>
-    <div class="project-card">
-      <div class="project-accent">🌍</div>
-      <div class="project-num">10 / Web</div>
-      <div class="project-name">Landing pages and other projects</div>
-      <div class="project-desc">Multiple responsive websites and landing pages built with React, HTML, CSS, and JavaScript - focusing on UI/UX design, animations, and clean code architecture, plus other projects</div>
-      <div class="project-tags"><span class="project-tag">React</span><span class="project-tag">HTML/CSS</span><span class="project-tag">JavaScript</span><span class="project-tag">UI/UX</span></div>
+    <div class="project-card" data-cat="web ml">
+      <div class="project-accent">📄</div>
+      <div class="project-num">05 / Full-Stack</div>
+      <div class="project-name">AI Document Summarizer</div>
+      <div class="project-desc">Full-stack application allowing students to upload documents and receive AI-generated summaries, key points, and study questions using FastAPI, React, and OpenAI API.</div>
+      <div class="project-tags"><span class="project-tag">FastAPI</span><span class="project-tag">React</span><span class="project-tag">OpenAI API</span><span class="project-tag">NLP</span></div>
       <div class="project-link">
-        <button onclick="window.open('https://github.com/HaneefAderolu', '_blank')">View all</button>
+        <a href="https://ai-study-assistant-sigma-nine.vercel.app/" target="_blank" rel="noopener">View Project</a>
+      </div>
+    </div>
+    <div class="project-card" data-cat="ml">
+      <div class="project-accent">📰</div>
+      <div class="project-num">06 / NLP</div>
+      <div class="project-name">Fake News Detector</div>
+      <div class="project-desc">NLP model detecting fake news using TF-IDF + Logistic Regression. Evaluated with confusion matrix - 98.6% accuracy.</div>
+      <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">TF-IDF</span><span class="project-tag">98.6% acc</span></div>
+      <div class="project-link">
+        <a href="https://github.com/HaneefAderolu/Fake-News-Detector" target="_blank" rel="noopener">View Project</a>
+      </div>
+    </div>
+    <div class="project-card" data-cat="ml">
+      <div class="project-accent">💬</div>
+      <div class="project-num">07 / NLP</div>
+      <div class="project-name">Sentiment Analysis</div>
+      <div class="project-desc">Classifies IMDB movie reviews as positive or negative using TF-IDF vectorization and logistic regression. 89.3% accuracy.</div>
+      <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">NLP</span><span class="project-tag">89.3% acc</span></div>
+      <div class="project-link">
+        <a href="https://github.com/HaneefAderolu/Sentiment-Analysis" target="_blank" rel="noopener">View Project</a>
+      </div>
+    </div>
+    <div class="project-card" data-cat="web">
+      <div class="project-accent">🛍️</div>
+      <div class="project-num">08 / Shopify</div>
+      <div class="project-name">E-Commerce Shopify Store</div>
+      <div class="project-desc">Built a fully functional Shopify e-commerce store with product catalog, shopping cart, checkout integration, and payment processing. Optimized for conversions and mobile responsiveness.</div>
+      <div class="project-tags"><span class="project-tag">Shopify</span><span class="project-tag">Liquid</span><span class="project-tag">E-Commerce</span><span class="project-tag">UI/UX</span></div>
+      <div class="project-link">
+        <a href="https://drive.google.com/file/d/1xbv2knBBzUDkyuBnt7J_HRt3lC9ZFJbn/view?usp=drive_link" target="_blank" rel="noopener">View Project</a>
+      </div>
+    </div>
+    <div class="project-card" data-cat="other">
+      <div class="project-accent">🖼</div>
+      <div class="project-num">09 / C++</div>
+      <div class="project-name">Image Editing Program</div>
+      <div class="project-desc">Team of 3 built an image processing app with blur, grayscale conversion, and pixel-level transformations.</div>
+      <div class="project-tags"><span class="project-tag">C++</span><span class="project-tag">Image Processing</span><span class="project-tag">Team Project</span></div>
+      <div class="project-link">
+        <a href="https://github.com/HaneefAderolu" target="_blank" rel="noopener">View Project</a>
       </div>
     </div>
   </div>
+  <p class="more"><a href="https://github.com/HaneefAderolu" target="_blank" rel="noopener">See everything else on GitHub →</a></p>
 </section>
 
 <section class="ml-section" id="ml">
@@ -604,8 +649,8 @@
     <div class="ml-card featured">
       <div class="ml-badge">Best Model</div>
       <div class="ml-accuracy" data-target="98.6">0%</div>
-      <div class="ml-name">Fake News Detector + Handwritten Digit Recognition</div>
-      <div class="ml-detail">Two separate models both hit 98.6% accuracy. Fake news detector uses TF-IDF + Logistic Regression. Digit recognizer uses an SVM on the digits dataset.</div>
+      <div class="ml-name">Fake News Detector</div>
+      <div class="ml-detail">TF-IDF features with Logistic Regression, evaluated with a confusion matrix.</div>
       <div class="accuracy-bar"><div class="accuracy-fill" data-width="98.6"></div></div>
     </div>
     <div style="display:flex; flex-direction:column; gap:2px;">
@@ -615,12 +660,6 @@
         <div class="ml-detail">IMDB reviews · TF-IDF + Logistic Regression</div>
         <div class="accuracy-bar"><div class="accuracy-fill" data-width="89.3"></div></div>
       </div>
-      <div class="ml-card">
-        <div class="ml-accuracy" style="font-size:48px;" data-target="75.9">0%</div>
-        <div class="ml-name">Customer Churn</div>
-        <div class="ml-detail">Gaussian Naive Bayes · feature selection + encoding</div>
-        <div class="accuracy-bar"><div class="accuracy-fill" data-width="75.9"></div></div>
-      </div>
     </div>
   </div>
 </section>
@@ -629,20 +668,20 @@
   <div class="contact-inner reveal">
     <div class="section-label" style="justify-content:center;">Contact</div>
     <h2 class="contact-big">Let's <em>work</em><br>together</h2>
-    <p class="contact-sub">Currently based in Egypt, open to collaborations, internships, and interesting projects. Reach out through any of the media below</p>
+    <p class="contact-sub">Based in Egypt and open to full-time roles, internships and collaborations. Email is the best place to start.</p>
     <div class="contact-links">
       <a href="mailto:aderoluhaneef@gmail.com" class="contact-link"><span>✉</span> aderoluhaneef@gmail.com</a>
-      <a href="https://github.com/HaneefAderolu" target="_blank" class="contact-link"><span>⌥</span> GitHub</a>
-      <a href="https://www.linkedin.com/in/haneef-aderolu-32761727a" target="_blank" class="contact-link"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="vertical-align:middle;"><circle cx="12" cy="12" r="12" fill="none" stroke="var(--accent)" stroke-width="0.5"/><path fill="var(--accent)" d="M7.2 9.6h2V17h-2zm1-3.2a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zm3 3.2h1.9v1h.1c.3-.5 1-1.1 2-1.1 2.1 0 2.5 1.4 2.5 3.2V17h-2v-3.7c0-.9 0-2-1.2-2s-1.4 1-1.4 2V17h-2V9.6z"/></svg></span> LinkedIn</a>
-      <a href="https://wa.me/2349117935124" target="_blank" class="contact-link"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18" style="vertical-align:middle;"><circle cx="24" cy="24" r="24" fill="none" stroke="var(--accent)" stroke-width="1"/><path fill="var(--accent)" d="M24 10.5C16.6 10.5 10.5 16.6 10.5 24c0 2.4.6 4.7 1.8 6.7L10.5 37.5l7-1.8c1.9 1.1 4.1 1.7 6.5 1.7 7.4 0 13.5-6.1 13.5-13.5S31.4 10.5 24 10.5zm6.6 18.6c-.3.8-1.5 1.5-2.1 1.6-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9 1-2.2.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.3.6 1 2.3 1.1 2.4.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1.1.3.2.5.3.6.4.1.3.1 1-.2 1.8z"/></svg></span> +234 911 793 5124</a>
-      <a href="https://wa.me/201507103767" target="_blank" class="contact-link"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18" style="vertical-align:middle;"><circle cx="24" cy="24" r="24" fill="none" stroke="var(--accent)" stroke-width="1"/><path fill="var(--accent)" d="M24 10.5C16.6 10.5 10.5 16.6 10.5 24c0 2.4.6 4.7 1.8 6.7L10.5 37.5l7-1.8c1.9 1.1 4.1 1.7 6.5 1.7 7.4 0 13.5-6.1 13.5-13.5S31.4 10.5 24 10.5zm6.6 18.6c-.3.8-1.5 1.5-2.1 1.6-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9 1-2.2.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.3.6 1 2.3 1.1 2.4.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1.1.3.2.5.3.6.4.1.3.1 1-.2 1.8z"/></svg></span> +20 1507103767</a>
-      <a href="https://drive.google.com/file/d/1BTHs0VpxGeGHx5upozRGCm7K65M3ARMm/view?usp=drive_link" target="_blank" class="contact-link"><span>↓</span> Download CV</a>
+      <a href="https://github.com/HaneefAderolu" target="_blank" rel="noopener" class="contact-link"><span>⌥</span> GitHub</a>
+      <a href="https://www.linkedin.com/in/haneef-aderolu-32761727a" target="_blank" rel="noopener" class="contact-link"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="vertical-align:middle;"><circle cx="12" cy="12" r="12" fill="none" stroke="var(--accent)" stroke-width="0.5"/><path fill="var(--accent)" d="M7.2 9.6h2V17h-2zm1-3.2a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zm3 3.2h1.9v1h.1c.3-.5 1-1.1 2-1.1 2.1 0 2.5 1.4 2.5 3.2V17h-2v-3.7c0-.9 0-2-1.2-2s-1.4 1-1.4 2V17h-2V9.6z"/></svg></span> LinkedIn</a>
+      <a href="https://wa.me/2349117935124" target="_blank" rel="noopener" class="contact-link"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18" style="vertical-align:middle;"><circle cx="24" cy="24" r="24" fill="none" stroke="var(--accent)" stroke-width="1"/><path fill="var(--accent)" d="M24 10.5C16.6 10.5 10.5 16.6 10.5 24c0 2.4.6 4.7 1.8 6.7L10.5 37.5l7-1.8c1.9 1.1 4.1 1.7 6.5 1.7 7.4 0 13.5-6.1 13.5-13.5S31.4 10.5 24 10.5zm6.6 18.6c-.3.8-1.5 1.5-2.1 1.6-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9 1-2.2.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.3.6 1 2.3 1.1 2.4.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1.1.3.2.5.3.6.4.1.3.1 1-.2 1.8z"/></svg></span> WhatsApp (Nigeria)</a>
+      <a href="https://wa.me/201507103767" target="_blank" rel="noopener" class="contact-link"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18" height="18" style="vertical-align:middle;"><circle cx="24" cy="24" r="24" fill="none" stroke="var(--accent)" stroke-width="1"/><path fill="var(--accent)" d="M24 10.5C16.6 10.5 10.5 16.6 10.5 24c0 2.4.6 4.7 1.8 6.7L10.5 37.5l7-1.8c1.9 1.1 4.1 1.7 6.5 1.7 7.4 0 13.5-6.1 13.5-13.5S31.4 10.5 24 10.5zm6.6 18.6c-.3.8-1.5 1.5-2.1 1.6-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9 1-2.2.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.3.6 1 2.3 1.1 2.4.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1.1.3.2.5.3.6.4.1.3.1 1-.2 1.8z"/></svg></span> WhatsApp (Egypt)</a>
+      <a href="https://drive.google.com/file/d/1BTHs0VpxGeGHx5upozRGCm7K65M3ARMm/view?usp=drive_link" target="_blank" rel="noopener" class="contact-link"><span>↓</span> Download CV</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <span>© 2026 Haneef Aderolu</span>
+  <span>© 2026 Haneef Aderolu · Cairo <b id="clock" style="font-weight:400;color:var(--muted)"></b></span>
   <div class="footer-dot"></div>
   <a href="https://drive.google.com/file/d/1BTHs0VpxGeGHx5upozRGCm7K65M3ARMm/view?usp=drive_link" target="_blank" style="font-size:11px; letter-spacing:0.1em; color:var(--muted); text-decoration:none; text-transform:uppercase; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Download CV ↓</a>
 </footer>
@@ -734,6 +773,161 @@
     }
     requestAnimationFrame(update);
   }
+
+  /* ---- creative layer ---- */
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const toRgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(',');
+  let netCol = '200,240,98';
+
+  // particle network that reacts to the mouse
+  (function () {
+    const c = document.getElementById('net'), x = c.getContext('2d'), hero = c.parentElement;
+    let w, h, pts = [], m = { x: -999, y: -999 }, vis = true;
+    function size() {
+      w = c.width = hero.offsetWidth; h = c.height = hero.offsetHeight;
+      const n = Math.min(90, Math.floor(w * h / 16000));
+      pts = Array.from({ length: n }, () => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - .5) * .4, vy: (Math.random() - .5) * .4 }));
+    }
+    size(); addEventListener('resize', size);
+    hero.addEventListener('mousemove', e => { const r = hero.getBoundingClientRect(); m.x = e.clientX - r.left; m.y = e.clientY - r.top; });
+    hero.addEventListener('mouseleave', () => { m.x = m.y = -999; });
+    new IntersectionObserver(e => vis = e[0].isIntersecting).observe(hero);
+    function tick() {
+      requestAnimationFrame(tick);
+      if (!vis || rm) return;
+      x.clearRect(0, 0, w, h);
+      for (const p of pts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+        const dx = p.x - m.x, dy = p.y - m.y, d = Math.hypot(dx, dy) || 1;
+        if (d < 110) { p.x += dx / d * 1.2; p.y += dy / d * 1.2; }
+        x.fillStyle = 'rgba(' + netCol + ',.7)';
+        x.beginPath(); x.arc(p.x, p.y, 1.6, 0, 6.3); x.fill();
+        if (d < 180) { x.strokeStyle = 'rgba(' + netCol + ',' + (.5 * (1 - d / 180)) + ')'; x.beginPath(); x.moveTo(p.x, p.y); x.lineTo(m.x, m.y); x.stroke(); }
+      }
+      for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+        const a = pts[i], b = pts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < 120) { x.strokeStyle = 'rgba(' + netCol + ',' + (.18 * (1 - d / 120)) + ')'; x.beginPath(); x.moveTo(a.x, a.y); x.lineTo(b.x, b.y); x.stroke(); }
+      }
+    }
+    tick();
+  })();
+
+  // rotating role line
+  (function () {
+    const roles = ['web apps people enjoy using.', 'ML models that actually work.', 'games in plain JavaScript.', 'offline-first apps with Arabic support.'];
+    const ty = document.getElementById('typed');
+    if (rm) { ty.textContent = roles[0]; return; }
+    let ri = 0, ci = 0, del = false;
+    (function type() {
+      const r = roles[ri]; ci += del ? -1 : 1; ty.textContent = r.slice(0, ci);
+      let t = del ? 25 : 55;
+      if (!del && ci === r.length) { del = true; t = 1600; }
+      else if (del && ci === 0) { del = false; ri = (ri + 1) % roles.length; t = 300; }
+      setTimeout(type, t);
+    })();
+  })();
+
+  // tech marquee
+  (function () {
+    const items = ['React', 'JavaScript', 'Python', 'scikit-learn', 'FastAPI', 'Streamlit', 'Canvas', 'PWA', 'DuckDB', 'C++', 'Java', 'NLP', 'Shopify'];
+    const row = items.map(t => '<span>' + t + '</span><span>✦</span>').join('');
+    document.getElementById('track').innerHTML = row + row;
+  })();
+
+  // scroll progress bar
+  addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    document.getElementById('progress').style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')';
+  }, { passive: true });
+
+  // accent colour switcher
+  (function () {
+    const dots = document.querySelectorAll('#themes button');
+    function setAccent(c) {
+      document.documentElement.style.setProperty('--accent', c);
+      netCol = toRgb(c);
+      dots.forEach(d => d.classList.toggle('on', d.dataset.c === c));
+      try { localStorage.setItem('accent', c); } catch (e) {}
+    }
+    dots.forEach(d => d.addEventListener('click', () => setAccent(d.dataset.c)));
+    try { const saved = localStorage.getItem('accent'); if (saved) setAccent(saved); } catch (e) {}
+  })();
+
+  // project filters
+  (function () {
+    const cards = [...document.querySelectorAll('.project-card')];
+    const box = document.getElementById('filters');
+    [['all', 'All'], ['web', 'Web'], ['ml', 'ML'], ['game', 'Games']].forEach(([k, label], i) => {
+      const b = document.createElement('button');
+      b.textContent = label; if (i === 0) b.className = 'on';
+      b.addEventListener('click', () => {
+        box.querySelectorAll('button').forEach(x => x.classList.remove('on')); b.classList.add('on');
+        let n = 0;
+        cards.forEach(c => {
+          const ok = k === 'all' || c.dataset.cat.split(' ').includes(k);
+          c.style.display = ok ? '' : 'none';
+          c.classList.remove('show');
+          if (ok) { c.style.setProperty('--i', n++); void c.offsetWidth; c.classList.add('show'); }
+        });
+      });
+      box.appendChild(b);
+    });
+  })();
+
+  // tilt and spotlight on cards
+  document.querySelectorAll('.project-card, .skill-block').forEach((el, i) => {
+    el.style.setProperty('--i', i % 10);
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+      el.style.setProperty('--mx', px * 100 + '%'); el.style.setProperty('--my', py * 100 + '%');
+      if (!rm && el.classList.contains('project-card')) el.style.transform = 'perspective(800px) rotateY(' + ((px - .5) * 6) + 'deg) rotateX(' + ((.5 - py) * 6) + 'deg) translateY(-3px)';
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+
+  // magnetic buttons
+  if (!rm) document.querySelectorAll('.btn-primary, .btn-ghost, .contact-link').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .2) + 'px,' + ((e.clientY - r.top - r.height / 2) * .3) + 'px)';
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+
+  // text scramble on section titles
+  (function () {
+    const ch = '!<>-_/[]{}=+*^?#';
+    function scramble(el) {
+      const t = el.textContent; let f = 0;
+      const id = setInterval(() => {
+        el.textContent = t.split('').map((c, i) => c === ' ' ? c : (i < f / 2 ? c : ch[Math.random() * ch.length | 0])).join('');
+        if (++f > t.length * 2) { el.textContent = t; clearInterval(id); }
+      }, 30);
+    }
+    if (rm) return;
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { scramble(e.target); io.unobserve(e.target); } }), { threshold: .6 });
+    document.querySelectorAll('.section-title').forEach(t => io.observe(t));
+  })();
+
+  // hero stats count up
+  document.querySelectorAll('.stat-num').forEach(el => {
+    const n = parseInt(el.textContent), suf = el.textContent.replace(/[0-9]/g, ''), t0 = performance.now() + 900;
+    if (rm) return;
+    (function up(now) {
+      const t = Math.max(0, Math.min((now - t0) / 1400, 1));
+      el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * n) + suf;
+      if (t < 1) requestAnimationFrame(up);
+    })(performance.now());
+  });
+
+  // Cairo clock
+  (function () {
+    const el = document.getElementById('clock');
+    const tick = () => { el.textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Africa/Cairo', hour: '2-digit', minute: '2-digit' }); };
+    tick(); setInterval(tick, 30000);
+  })();
 </script>
 </body>
 </html>
